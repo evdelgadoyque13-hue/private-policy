@@ -4,8 +4,7 @@ services:
     ports:
       - "3000:80"
     volumes:
-      - .:/repo:ro
-    command: ["sh", "-c", "cp /repo/.github/workflows/deploy3.yml /usr/share/nginx/html/index.html && exec nginx -g 'daemon off;'"]
+      - ./index.html:/usr/share/nginx/html/index.html:ro
     restart: on-failure
     healthcheck:
       test: ["CMD", "wget", "-q", "--spider", "http://127.0.0.1:80/"]
