@@ -1,16 +1,13 @@
 on:
 push:
 branches: [ "main" ]
-
 permissions:
 contents: read
 pages: write
 id-token: write
-
 concurrency:
 group: "pages"
 cancel-in-progress: true
-
 jobs:
 deploy:
 environment:
@@ -27,20 +24,16 @@ path: '.'
 - name: Deploy to GitHub Pages
 id: deployment
 uses: actions/deploy-pages@v4
-
 on:
 push:
 branches: [ "main" ]
-
 permissions:
 contents: read
 pages: write
 id-token: write
-
 concurrency:
 group: "pages"
 cancel-in-progress: true
-
 jobs:
 deploy:
 environment:
